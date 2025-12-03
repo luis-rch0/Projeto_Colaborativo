@@ -1,11 +1,13 @@
 package com.senai.infoa.FlutterFlow.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.senai.infoa.FlutterFlow.models.Endereco;
 import com.senai.infoa.FlutterFlow.repositories.EnderecoRepository;
+
 
 @Service
 public class EnderecoService {
@@ -25,11 +27,11 @@ public class EnderecoService {
         return endereco;
     }
 
-    public Endereco buscarPorId(Integer id) {
+    public Endereco buscarPorId(@NonNull Integer id) {
         return er.findById(id).get();
     }
 
-    public Endereco atualizar(Endereco endereco, Integer id) {
+    public Endereco atualizar(Endereco endereco, @NonNull Integer id) {
         Endereco e = buscarPorId(id);
         if (e != null) {
             endereco.setId(id);
