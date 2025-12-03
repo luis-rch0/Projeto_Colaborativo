@@ -1,6 +1,7 @@
 package com.senai.infoa.FlutterFlow.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,12 +27,12 @@ public class EnderecoController {
     }
 
     @PutMapping("/atualizar/{id}")
-    public Endereco atualizar(@PathVariable Integer id, @RequestBody Endereco Endereco) {
+    public Endereco atualizar(@PathVariable @NonNull Integer id, @RequestBody Endereco Endereco) {
         return es.atualizar(Endereco, id);
     }
 
     @GetMapping("/buscar/{id}")
-    public Endereco buscarPorId(@PathVariable Integer id) {
+    public Endereco buscarPorId(@PathVariable @NonNull Integer id) {
         return es.buscarPorId(id);
     }
 

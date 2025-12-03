@@ -2,6 +2,7 @@ package com.senai.infoa.FlutterFlow.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,7 +22,7 @@ public class UsuarioController {
     private UsuarioService us;
     
     @PostMapping("/cadastroUsuario")
-    public Usuario salvar(@RequestBody Usuario usuario) {
+    public Usuario salvar(@RequestBody @NonNull Usuario usuario) {
         return us.salvar(usuario);
     }
 
@@ -38,7 +39,7 @@ public ResponseEntity<String> cadastrarUsuario(
     }
 
     @PutMapping("/atualizar/{id}")
-    public Usuario atualizar(@PathVariable Integer id, @RequestBody Usuario usuario) {
+    public Usuario atualizar(@PathVariable @NonNull Integer id, @RequestBody Usuario usuario) {
         return us.atualizar(usuario, id);
     }
 }
