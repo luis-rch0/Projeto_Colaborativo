@@ -7,8 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -38,9 +36,6 @@ public class Usuario {
     @Column(name="dataNascimento")
     private LocalDate dataNascimento;
 
-    @ManyToOne
-    @JoinColumn(name = "endereco_id")
-    private Endereco Endereco;
 
     public Usuario () {}
 
@@ -54,9 +49,6 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public Usuario(Endereco Endereco) {
-        this.Endereco = Endereco;
-    }
 
     public Integer getId() {
         return id;
@@ -114,12 +106,5 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public Endereco getEndereco() {
-        return Endereco;
-    }
-
-    public void setEndereco(Endereco Endereco) {
-        this.Endereco = Endereco;
-    }
 
 }
